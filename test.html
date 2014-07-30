@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>teste</title>
+		<link rel=stylesheet href="sharpCalendar/css/jquery.sharpCalendar.css" type="text/css" media="screen">		
+		<link rel=stylesheet href="css/SCTestPage.css" type="text/css" media="screen">
+		<script type="text/javascript" src="others/jquery.js"></script>
+        <script type="text/javascript" src="sharpCalendar/script/jquery.sharpCalendar.js"></script>
+		<script type="text/javascript" src="others/jquery.mousewheel.js"></script>
+	</head>
+
+	<body>
+
+		<table cellpadding="0" cellspacing="0" width="1000px" style="border-collapse: collapse;" align="center" class="tab">
+		  <tr>
+		    <td colspan="2" width="100%">		      
+		      <div id="dsel2" style="width:100%;"></div>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td width="10%">
+		        <div id="dsel1" style="width:120px; height: 500px;"></div>
+		    </td>
+		    <td width="90%">
+		      <div id="wtf"></div>
+		    </td>		  
+		  </tr>
+		</table>
+		
+		<script type="text/javascript">
+            var selectedDates = [["09-07-2014", 2], ["11-07-2014"], ["01-07-2014"], ["07-07-2014", 2]];
+            //*
+            var sc1 = $("#dsel1").SC({
+                animate: true,
+                useWheel: true,
+                vertical: true,
+                sizes: 'equal',                
+                callbackDelay: 500,
+                years: 1,
+                months: 3,
+                days: 5,
+                invert: false,
+                combineMonthYear: true,
+                showDayArrows: false,
+                showDayNames: true,
+                monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                doubleDigitsDays: true,
+                allowSelectSpans: true,
+                selectedDates: selectedDates,
+                callback:function(cal) {
+                  $("#wtf").html("Selected date: " + cal.currentDate + "<br>Clicked: " + cal.clicked);
+                }
+		    });
+		    /**/
+            //*
+            var sc2 = $("#dsel2").SharpCalendar({
+                animate: true,
+                useWheel: true,
+                //callbackDelay:500,
+                sizes: 'equal',
+                years: 2,
+                months: 4,
+                days: 5,
+                showDayArrows: false,
+                showDayNames: true,
+                doubleDigitsDays: true,
+                allowSelectSpans: true,
+                showDayNamesOnTop: true,
+                invert: false,
+                combineMonthYear: true,
+                selectedDates: selectedDates,
+                //callback:function(cal) {
+                //  $("#wtf").html("Selected date: " + cal.currentDate);
+                //}
+		      });
+              /**/
+		</script>
+		
+		<input type="button" onclick="sc2.changeDate((new Date('12-12-2012')))" value="teste">
+		<input type="button" onclick="sc2.changeDate((new Date()))" value="reset">
+
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900">
+        <link rel=stylesheet href="sharpCalendar/css/jquery.sharpCalendar.css" type="text/css" media="screen">		
+        <link rel=stylesheet href="css/reset.css" type="text/css" media="screen">
+        <link rel=stylesheet href="css/main.css" type="text/css" media="screen">
+                
+        <title>#Calendar</title>
+    </head>
+    <body>
+        <input type="hidden" id="selectedDates" value="2014-7-22,2014-7-25,2014-7-27,2014-5-27,2014-10-25,2014-10-20"/>
+        <div id="page" class="page">
+            <section id="main" data-title="José Pedro Marques, Web Developer">
+                <div class="title">
+                    <span>#Calendar</span>
+                </div>
+                <div class="wrapper">
+                    
+                </div>
+                <div class="wrapperHor" style="display: none;">
+                    
+                </div>
+                
+                <div class="log">
+                
+                </div>
+                <div id="bg-blue"></div>
+                <div id="bg-green"></div>
+                <div id="bg-dark"></div>
+            </section>
+        </div>
+        <!-- jQuery -->
+        <script src="others/jquery.js"></script>
+        <!-- SharpCalendar -->
+        <script src="sharpCalendar/script/jquery.sharpCalendar.js"></script>
+        <!-- libs -->
+        <script src="others/jquery.mousewheel.js"></script>
+        <script src="scripts/main.js"></script>
+        <script>
+            $(".wrapper").SC({
+                selectedDatesObj: 'selectedDates',
+                animate: true,
+                useWheel: true,
+                vertical: true,
+                sizes: 'auto', 
+                callbackDelay: 500,
+                years: 1,
+                months: 3,
+                days: 5,
+                invert: false,
+                combineMonthYear: true,
+                showDayArrows: false,
+                showDayNames: true,
+                monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                doubleDigitsDays: true,
+                allowSelectSpans: true,                
+                callback:function(cal) {
+                  $(".log").html("<b>Selected date:</b><br><br>" + cal.currentDate);
+                }
+		    });
+            
+            $(".wrapperHor").SC({
+                animate: true,
+                useWheel: true,
+                vertical: false,
+                sizes: 'auto',                
+                callbackDelay: 500,
+                years: 1,
+                months: 3,
+                days: 5,
+                invert: false,
+                combineMonthYear: false,
+                showDayArrows: false,
+                showDayNames: true,
+                monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                doubleDigitsDays: true,
+                allowSelectSpans: true,                
+                callback:function(cal) {
+                  $("#wtf").html("Selected date: " + cal.currentDate);
+                }
+		    });
+        </script>
+    </body>
+</html>

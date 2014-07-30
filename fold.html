@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>teste</title>
+		<link rel=stylesheet href="sharpCalendar/css/jquery.sharpCalendar.css" type="text/css" media="screen">		
+		<link rel=stylesheet href="css/SCTestPage.css" type="text/css" media="screen">
+		<script type="text/javascript" src="others/jquery.js"></script>
+        <script type="text/javascript" src="sharpCalendar/script/jquery.sharpCalendar.js"></script>
+		<script type="text/javascript" src="others/jquery.mousewheel.js"></script>
+        <style>
+            body {
+              background: #272822;
+            }
+
+            .page {
+              background: #fff;
+              width: 250px;
+              height: 330px;
+              margin: 50px;
+
+             /* Optional Gradient */
+              background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+              background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+              background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+              background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+              background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+              background: linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+            }
+            
+            .page h2 {
+              padding: 85px 0 0 20px;
+              font: 400 35px/1.5 'Lilita One', Helvetica, sans-serif;
+            }
+
+            .page p {
+              padding: 10px 20px;
+              font: 12px/1.5 Helvetica, sans-serif;
+              color: #4b4b4b;
+            }
+            
+            .foldtl {
+              position: relative;
+              -webkit-box-shadow: 5px 5px 5px rgba(0,0,0,0.8);
+              -moz-box-shadow: 5px 5px 5px rgba(0,0,0,0.8);
+              box-shadow: 5px 5px 5px rgba(0,0,0,0.8);
+            }
+            
+            .foldtl:before {
+              content: "";
+              position: absolute;
+              top: 0%;
+              left: 0%;
+              width: 0px;
+              height: 0px;
+              border-bottom: 70px solid #eee;
+              border-left: 70px solid transparent;
+              -webkit-box-shadow: 7px 7px 7px rgba(0,0,0,0.3);
+              -moz-box-shadow: 7px 7px 7px rgba(0,0,0,0.3);
+              box-shadow: 7px 7px 7px rgba(0,0,0,0.3);
+            }
+            
+            .foldtl:after {
+              content: "";
+              position: absolute;
+              top: 0%;
+              left: 0%;
+              width: 0px;
+              height: 0px;
+              border-top: 69px solid #272822; 
+              border-right: 69px solid transparent;
+            }
+        </style>
+	</head>
+
+	<body>
+        <div class="page foldtl">
+          <h2>Headline</h2>
+          <p>Lorem ipsum dolor sit amet...</p>
+        </div>
+    </body>
+</html>

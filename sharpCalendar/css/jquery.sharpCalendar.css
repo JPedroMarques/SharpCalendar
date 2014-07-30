@@ -1,0 +1,90 @@
+/* To prevent unusual effects with clicks */
+.SCBox div{
+    -webkit-touch-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Structural */
+.SCTbl {
+	display: table;	
+	float: left;
+    border-collapse: separate;
+}
+
+.SCYear,
+.SCMonth,
+.SCDay {
+    vertical-align: middle;
+}
+
+.SCTbl > div {
+	display: table-row;	
+    width: 100%;
+}
+
+.SCTbl > div > div {
+	display: table-cell;
+}
+
+.SCYear	    .SCTbl,
+.SCMonth	.SCTbl,
+.SCDay  	.SCTbl,
+.SCDay  	.prev,
+.SCDay  	.next {
+	margin: 2px;
+}
+
+.SCElement {
+	text-align: center;
+    cursor: pointer;    
+    vertical-align: middle;
+	font-size: 100%;
+    width: 100%;
+}
+
+.SCElement > .SCDayName {
+	font-size: 70%;
+}
+
+.prev,
+.next {    
+    display:  inline-block;
+    z-index: 10;
+    position: absolute;
+    vertical-align: middle;
+}
+
+.prev { left: 0; top: 0;}
+
+/* Just Horizontal Calendar */
+
+.SCHor .SCDay>div {
+    position: relative;
+}
+
+.SCHor .next { right: 0;}
+
+.SCHor .prev .SCDayNum:after { content: "\25C0"; }
+.SCHor .next .SCDayNum:after { content: "\25B6"; }
+
+/* Just Vertical Calendar */
+.SCVert .SCYear		    { width: 10%; }
+.SCVert .SCMonth 	    { width: 50%; }
+.SCVert .SCMonth .Comb  { width: 60%; }
+.SCVert .SCDay 		    { width: 40%; }
+
+.SCVert .SCDay {
+    position: relative;
+}
+
+.SCVert .next { 
+    left: 0; 
+    bottom: 0;
+}
+
+.SCVert .prev .SCDayNum:after { content: "\25B2"; }
+.SCVert .next .SCDayNum:after { content: "\25BC"; }
