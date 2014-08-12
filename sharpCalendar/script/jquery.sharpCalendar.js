@@ -28,7 +28,7 @@ jQuery.fn.SharpCalendar = jQuery.fn.SC = function (options) {
 	if (typeof options.invert              === "undefined") { options.invert = false; }
     if (typeof options.combineMonthYear    === "undefined") { options.combineMonthYear = false; }
     if (typeof options.allowSelectSpans    === "undefined") { options.allowSelectSpans = false; }
-    if (typeof options.selectedDatesObj    === "undefined") { options.selectedDatesObj = []; }
+    if (typeof options.selectedDatesObj    === "undefined") { options.selectedDatesObj = ''; }
     if (typeof options.animate             === "undefined") { options.animate = false; }
     if (typeof options.sizes               === "undefined") { options.sizes = 'auto'; } // options: auto, equal, none
 	// --------------------------  End default option values --------------------------	
@@ -105,7 +105,7 @@ jQuery.fn.SharpCalendar = jQuery.fn.SC = function (options) {
                     d.setFullYear(i);
                     div = $("<div>").addClass("SCElement")
                                     .attr("millis", d.getTime())
-                                    .html(htmlI);
+                                    .html("<div>" + htmlI + "</div>");
 
                     if (d.getFullYear() === calendar.currentDate.getFullYear()) {
                         div.addClass("SCSel");
@@ -140,12 +140,12 @@ jQuery.fn.SharpCalendar = jQuery.fn.SC = function (options) {
                     }
                     div = $("<div>").addClass("SCElement")
                                     .attr("millis", d.getTime())
-                                    .html(options.monthNames[d.getMonth()] + (options.combineMonthYear ? "'" + d.getFullYear().toString().substring(2, 4) : ""));
+                                    .html("<div><span>" + options.monthNames[d.getMonth()] + (options.combineMonthYear ? "'" + d.getFullYear().toString().substring(2, 4) : "") + "</span></div>");
 
                     if (d.getFullYear() === calendar.currentDate.getFullYear() && d.getMonth() === calendar.currentDate.getMonth()) {
                         div.addClass("SCSel");
                     }
-                    
+                    console.log(options.selectedDatesObj);
                     if (options.selectedDatesObj !== '' && $('#' + options.selectedDatesObj).val().indexOf(d.getFullYear() + "-" + (d.getMonth() + 1) + "-") >= 0) {
                         div.addClass("SCMarked");
                     }
@@ -183,14 +183,14 @@ jQuery.fn.SharpCalendar = jQuery.fn.SC = function (options) {
                     d.setDate(day + i);
                     div = $("<div>").addClass("SCElement").attr("millis", d.getTime());
                     
-                    div.html("<div class=\"SCDayNum\">" + (options.doubleDigitsDays ? ("0" + d.getDate()).slice(-2) : d.getDate()) + "</div>");
+                    div.html("<div><div class=\"SCDayNum\">" + (options.doubleDigitsDays ? ("0" + d.getDate()).slice(-2) : d.getDate()) + "</div></div>");
                         
                     if (options.showDayNames) {
                         dayNameHtml = "<div class=\"SCDayName\">" + options.dayNames[d.getDay()] + "</div>";
                         if (options.showDayNamesOnTop) {
-                            div.prepend(dayNameHtml);
+                            div.children().first().prepend(dayNameHtml);
                         } else {
-                            div.append(dayNameHtml);
+                            div.children().first().append(dayNameHtml);
                         }
                     }
 
@@ -240,11 +240,11 @@ jQuery.fn.SharpCalendar = jQuery.fn.SC = function (options) {
                     container.find(".next").width((w / 2) + "px");
                 }
                 
-                container.find(".SCTbl").width(w + "px");
-                container.find(".SCTbl").height(h + "px");
+                container.find(".SCElement>div").width(w + "px");
+                container.find(".SCElement>div").height(h + "px");
                 if (options.sizes === "auto") {
-                    container.find(".SCSel").parent().parent().width(ws + "px");
-                    container.find(".SCSel").parent().parent().height(hs + "px");
+                    container.find(".SCSel>div").width(ws + "px");
+                    container.find(".SCSel>div").height(hs + "px");
                 }
                                 
             },
@@ -260,9 +260,9 @@ jQuery.fn.SharpCalendar = jQuery.fn.SC = function (options) {
                     setSizes(Days, auxH, auxW, marginH, marginV, options.prvtDayNumCells);
                     
                     if (!options.vertical) {
-                        Years.find('.SCTbl .SCElement').height(Years.find('.SCSel').parent().parent().outerHeight());
-                        Months.find('.SCTbl .SCElement').height(Months.find('.SCSel').parent().parent().height());
-                        Days.find('.SCTbl .SCElement').height(Days.find('.SCSel').parent().parent().height());
+                        Years.find('.SCTbl .SCElement>div').height(Years.find('.SCSel').parent().parent().outerHeight());
+                        Months.find('.SCTbl .SCElement>div').height(Months.find('.SCSel').parent().parent().height());
+                        Days.find('.SCTbl .SCElement>div').height(Days.find('.SCSel').parent().parent().height());
 
                         if (options.showDayArrows) {
                             Days.find('.prev .SCElement').height(Days.find('.SCTbl .SCElement').height() + "px");

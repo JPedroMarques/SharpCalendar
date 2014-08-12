@@ -53,8 +53,8 @@ body {
     z-index: 2;
     height: 100px;
     width: 700px;
-    top: 200px;
-    left: 100px;    
+    bottom: 485px;
+    left: 300px;    
 }
 
 #main .log {
@@ -62,8 +62,8 @@ body {
     z-index: 2;
     height: 100px;
     width: 300px;
-    top: 300px;
-    left: 400px;
+    bottom: 300px;
+    left: 300px;
     background-color: #333;
     padding: 10px;
     -webkit-box-shadow: -5px 5px 5px rgba(0,0,0,0.8);
@@ -327,7 +327,8 @@ body {
 }
 
 /* Sharp Calendar */ 
-.wrapper {
+.wrapper,
+.wrapperHor{
     background-color: #333;
     padding: 10px;
     -webkit-box-shadow: -5px 5px 5px rgba(0,0,0,0.8);
@@ -345,10 +346,11 @@ body {
     -moz-box-shadow: -3px 3px 3px rgba(0,0,0,0.8);
     box-shadow: -3px 3px 3px rgba(0,0,0,0.8);
 }
-
+/*
 .wrapperHor .SCElement {
     border: 2px solid #444;
 }
+*/
 
 .SCSel,
 .wrapperHor .SCSel {
@@ -358,7 +360,7 @@ body {
     border-radius: 0;    
 }
 
-.SCMarked .SCDayNum {
+.SCMarked>div {
     position: relative;
 }
 
@@ -375,10 +377,10 @@ body {
 }
 
 .SCSel {
-    border-left: 2px solid #F77565;
+    /*border-left: 2px solid #F77565;*/
 }
 
-.SCMarked .SCDayNum:before {
+.SCMarked>div:before {
   content: "";
   position: absolute;
   top: 0%;
@@ -392,7 +394,7 @@ body {
   box-shadow: -3px 3px 3px rgba(0,0,0,0.3);
 }
 
-.SCMarked .SCDayNum:after {
+.SCMarked>div:after {
   content: "";
   position: absolute;
   top: 0%;

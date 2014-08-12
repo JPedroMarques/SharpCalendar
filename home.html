@@ -20,7 +20,7 @@
                 <div class="wrapper">
                     
                 </div>
-                <div class="wrapperHor" style="display: none;">
+                <div class="wrapperHor">
                     
                 </div>
                 
@@ -51,9 +51,9 @@
                 months: 3,
                 days: 5,
                 invert: false,
-                combineMonthYear: true,
+                combineMonthYear: false,
                 showDayArrows: false,
-                showDayNames: true,
+                showDayNames: false,
                 monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                 dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
                 doubleDigitsDays: true,
@@ -64,6 +64,7 @@
 		    });
             
             $(".wrapperHor").SC({
+                selectedDatesObj: 'selectedDates',
                 animate: true,
                 useWheel: true,
                 vertical: false,

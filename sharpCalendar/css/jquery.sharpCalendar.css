@@ -38,15 +38,15 @@
 	margin: 2px;
 }
 
-.SCElement {
+.SCElement > div {
 	text-align: center;
-    cursor: pointer;    
-    vertical-align: middle;
+    cursor: pointer;        
 	font-size: 100%;
-    width: 100%;
+    width: 100%;    
+    vertical-align: middle;
 }
 
-.SCElement > .SCDayName {
+.SCElement > div > .SCDayName {
 	font-size: 70%;
 }
 
